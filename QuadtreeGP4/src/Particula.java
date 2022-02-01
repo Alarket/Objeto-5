@@ -7,6 +7,7 @@ public class Particula {
     
     public float posX, posY;
     public boolean Colidindo;
+    public BoundingVolume bv;
 
     public void setPos(float posX, float posY)
     {
@@ -17,8 +18,25 @@ public class Particula {
         
         this.posX = posX;
         this.posY = posY;
+        this.bv.Esquerda = posX - SIZE;
+        this.bv.Cima = posY - SIZE;
+        this.bv.Direita = posX + SIZE;
+        this.bv.Baixo = posY + SIZE;
     }
     
+    public Particula(float x, float y)
+    {
+        this.posX = x;
+        this.posY = y;
+        this.bv = new BoundingVolume(x - SIZE, y - SIZE, x + SIZE, y + SIZE);
+        this.bv.particula = this;
+    }
+    
+    
+    public void Colisao()
+    {
+        this.Colidindo = true;
+    }
     
     private void Mover(float dirX, float dirY)
     {
@@ -33,7 +51,7 @@ public class Particula {
         float y = (float)( Math.random() - 0.5f ) * elapsedTime;
         Mover(x, y);
     }
-    
+
     
 }
 

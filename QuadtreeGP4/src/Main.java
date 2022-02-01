@@ -25,7 +25,9 @@ public class Main extends JFrame {
         setTitle("Teste de Colisao " + TIPO);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        
+        Plano plano = new Plano(LARGURA, ALTURA);
+        add(plano);
         getContentPane().setPreferredSize(new Dimension(LARGURA, ALTURA));
         pack();
     }
