@@ -29,6 +29,12 @@ public class BoundingVolume {
         return Direita - Esquerda;
     }
     
+    public void Desenhar(Graphics g)
+    {
+        g.setColor(Color.DARK_GRAY);
+        g.drawRect((int)this.Esquerda, (int)this.Cima, (int)this.getLargura(), (int)this.getAltura());
+    }
+    
     public static BoundingVolume Grupo(LinkedList<BoundingVolume> group)
     {
         float esquerda = Plano.WIDTH, cima = Plano.HEIGHT, direita = 0, baixo = 0;
@@ -43,6 +49,13 @@ public class BoundingVolume {
         return new BoundingVolume(esquerda, cima, direita, baixo);
     }
     
+    public boolean Cruza(BoundingVolume outro)
+    {
+        if (this.Esquerda > outro.Direita || this.Direita < outro.Esquerda ||
+                this.Cima > outro.Baixo || this.Baixo < outro.Cima)
+            return false;
+        return true;
+    }
     
     
 }

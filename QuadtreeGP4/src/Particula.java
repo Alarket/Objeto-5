@@ -51,7 +51,18 @@ public class Particula {
         float y = (float)( Math.random() - 0.5f ) * elapsedTime;
         Mover(x, y);
     }
-
+    
+    public void Desenhar(Graphics g)
+    {
+        Color c;
+        if (this.Colidindo)
+            c = Color.red;
+        else
+            c = Color.blue;
+        
+        g.setColor(c);
+        g.fillRect((int)this.bv.Esquerda, (int)this.bv.Cima, (int)this.bv.getLargura(), (int)this.bv.getAltura());
+    }
     
 }
 

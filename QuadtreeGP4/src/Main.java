@@ -22,6 +22,7 @@ public class Main extends JFrame {
     {
         get = this;
         
+        TIPO = Simulacao.TOOGLE_QUADTREE ? "com Quadtree" : "sem Quadtree";
         setTitle("Teste de Colisao " + TIPO);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
